@@ -1,16 +1,71 @@
-# React + Vite
+# Study Group Backend API
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 📌 Project Overview
+This is a Node.js + Express + MongoDB backend for a Study Group and Messaging system.  
+It allows users to create groups, send messages, and manage data securely using authentication.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 Tech Stack
+- Node.js
+- Express.js
+- MongoDB (Mongoose)
+- JWT Authentication
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## ⚙️ How to Run the Project
 
-## Expanding the ESLint configuration
+1. Install dependencies:
+npm install
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+2. Create a .env file and add:
+MONGODB_URI=your_mongodb_connection_string
+JWT_SECRET=your_secret_key
+PORT=5000
+
+3. Start the server:
+npm run dev
+
+---
+
+## 🔐 Authentication APIs
+POST /api/auth/signup → Register user  
+POST /api/auth/login → Login user (returns token)  111111
+GET /api/auth/me → Get logged-in user  
+
+---
+
+## 👥 Study Group APIs
+POST /api/groups → Create group  
+GET /api/groups → Get all groups  
+GET /api/groups/:id → Get single group  
+PUT /api/groups/:id → Update group  
+DELETE /api/groups/:id → Delete group  
+
+---
+
+## 💬 Message APIs
+POST /api/messages → Create message  
+GET /api/messages → Get all messages  
+GET /api/messages/group/:groupId → Get messages by group  
+PUT /api/messages/:id → Update message  
+DELETE /api/messages/:id → Delete message  
+
+---
+
+## 🔑 Authorization
+All protected routes require:
+Authorization: Bearer YOUR_TOKEN
+
+Token is generated from login API.
+
+---
+
+## 🧪 Testing
+All APIs were tested using Thunder Client.
+
+---
+
+## 👨‍💻 Author
+Karan Manjani
